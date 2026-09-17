@@ -1,14 +1,11 @@
-
 function createTask(name) {
   let count = 0;
 
   return {
     run: function () {
       count = count + 1;
-      
       return new Promise(function (resolve, reject) {
         let time = Math.floor(Math.random() * 1500) + 500;
-
         setTimeout(function () {
           if (Math.random() > 0.3) {
             resolve(name + " Completed (" + time + "ms)");
@@ -26,6 +23,7 @@ function createTask(name) {
     }
   };
 }
+
 let task1 = createTask("Load Users");
 let task2 = createTask("Load Posts");
 let task3 = createTask("Load Comments");
@@ -33,6 +31,8 @@ function printLog(text) {
   let logs = document.getElementById("logs");
   logs.textContent = logs.textContent + text + "\n";
 }
+
+
 async function runTask(taskNumber) {
   let currentTask;
   let statusSpan;
@@ -54,7 +54,7 @@ async function runTask(taskNumber) {
   statusSpan.textContent = "Loading...";
   try {
     let result = await currentTask.run();
-    statusSpan.textContent = result1;
+    statusSpan.textContent = result;
     printLog(result);
   } catch (error) {
     statusSpan.textContent = error;
@@ -79,7 +79,7 @@ function resetTask(taskNumber) {
 }
 async function runAllTasks() {
   let statusAll = document.getElementById("status-message");
-  statusAll.textContent = "Выполняются все задачи...";
+  statusAll.textContent = "Running all tasks";
   let p1 = task1.run();
   let p2 = task2.run();
   let p3 = task3.run();
