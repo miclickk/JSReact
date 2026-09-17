@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Demo</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .box { border: 1px solid #999; padding: 10px; margin-bottom: 8px; }
+    button { padding: 5px 10px; margin: 4px; cursor: pointer; }
+    #logs { background: #f0f0f0; padding: 10px; min-height: 100px; }
+  </style>
+</head>
+<body>
+
+  <h2>Задачи</h2>
+
+  <div class="box">
+    <span>Load Users | Count: <b id="count-1">0</b> | Status: <span id="status-1">Waiting for you</span></span>
+    <button onclick="runTask(1)">Run</button>
+    <button onclick="resetTask(1)">Reset</button>
+  </div>
+
+  <div class="box">
+    <span>Load Posts | Count: <b id="count-2">0</b> | Status: <span id="status-2">Waiting for you</span></span>
+    <button onclick="runTask(2)">Run</button>
+    <button onclick="resetTask(2)">Reset</button>
+  </div>
+
+  <div class="box">
+    <span>Load Comments | Count: <b id="count-3">0</b> | Status: <span id="status-3">Waiting for you</span></span>
+    <button onclick="runTask(3)">Run</button>
+    <button onclick="resetTask(3)">Reset</button>
+  </div>
+
+  <div style="margin: 15px 0;">
+    <button onclick="runAllTasks()">Run All Tasks</button>
+    <button onclick="compareTasks()">Compare Sequential vs Concurrent</button>
+    <button onclick="runEventLoopDemo()">Run Event Loop Demo</button>
+  </div>
+
+  <h3 id="status-message"></h3>
+
+  <h3>Logs:</h3>
+  <pre id="logs"></pre>
+
+  <script src="script.js"></script>
+</body>
+</html>
