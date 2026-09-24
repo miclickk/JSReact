@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #eef2f5;
+  font-family: "Times New Roman", sans-serif;
+  background-color: #b5d5ee;
   display: flex;
   justify-content: center;
   padding: 40px 15px;
@@ -8,7 +8,7 @@ body {
 
 .card {
   max-width: 420px;
-  background: white;
+  background: #f1bcbc;
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -27,6 +27,6 @@ body {
 
 hr {
   border: none;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #4a3838;
   margin: 16px 0;
 }

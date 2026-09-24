@@ -116,6 +116,7 @@ function runEventLoopDemo() {
   printLog("1: sync start");
   setTimeout(function () {printLog("6: setTimeout 0ms");}, 0);
   setTimeout(function () {printLog("7: setTimeout 20ms");}, 20);
+
   Promise.resolve().then(function () {
     printLog("4: Promise 1");
   });
@@ -123,7 +124,8 @@ function runEventLoopDemo() {
     printLog("5: Promise 2");
   });
   async function myAsyncFunc() {
-    printLog("2: async");
+
+    setTimeout(function () {printLog("2: async 20ms");},30);
     await Promise.resolve();
     printLog("3: await");
   }

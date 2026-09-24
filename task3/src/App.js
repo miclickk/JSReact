@@ -1,15 +1,14 @@
 import './App.css';
 
 function Header() {
+  const name = "Askar"
   return (
     <div className="header">
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL2ZZnEDxKgTalrZk6Rjfzr7VN0pNvuzQB0aqM8wGDqpV5poolBr9rU4_g&s=10"
-        alt="Avatar"
         className="avatar"
       />
-      <h1>Аскар</h1>
-      <p>3D Artist</p>
+      <h1>{name}</h1>
     </div>
   );
 }
@@ -22,6 +21,21 @@ function About() {
         Осваиваю React и современные веб-интерфейсы. Интересуюсь визуалом,
         дизайном.
       </p>
+    </div>
+  );
+}
+
+function Skills() {
+  const skills = ["3D Max", "React", "Blender"];
+
+  return (
+    <div>
+        <h3> Skills </h3>
+        <ul>
+      {skills.map((skill) => (
+        <li key={skill}>{skill}</li>
+      ))}
+        </ul>
     </div>
   );
 }
@@ -44,7 +58,10 @@ export default function App() {
       <hr />
       <About />
       <hr />
+      <Skills />
+      <hr />
       <Contacts />
+
     </div>
   );
 }
