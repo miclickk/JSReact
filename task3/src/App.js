@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 
 function Header() {
   const name = "Askar"
@@ -45,7 +46,7 @@ function Contacts() {
     <div>
       <h3>Контакты</h3>
       <p>🌍 Локация: Казахстан</p>
-      <p>🐙 GitHub: <a href="https://github.com" target="_blank" rel="noreferrer">github.com/miclickk</a></p>
+      <p>🐙 GitHub: <a href="https://github.com" target="_blank">github.com/miclickk</a></p>
       <p>💬 Telegram: @myaaaaaaaaaaaaa</p>
     </div>
   );
@@ -65,3 +66,6 @@ export default function App() {
     </div>
   );
 }
+
+
+/*  */
