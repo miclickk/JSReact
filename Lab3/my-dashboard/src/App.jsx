@@ -7,7 +7,7 @@ export default function App() {
 
   const [projects, setProjects] = useState([
     { id: 1, title: 'Кухня (Модерн)', status: 'В работе', resetKey: 0 },
-    { id: 2, title: 'Спальня (Лофт)', status: 'Готово', resetKey: 0 }
+    { id: 2, title: 'Спальня (Лофт)', status: 'Готово', resetKey: 0 },
   ]);
   const [filter, setFilter] = useState('Все');
 
@@ -55,7 +55,6 @@ export default function App() {
   return (
     <div className="dashboard">
       <h1>Трекер 3D-визуализаций</h1>
-
       <div className="controls">
         <button onClick={addProject}>Добавить проект</button>
         <button onClick={reverseList}>Перевернуть список</button>

@@ -1,20 +1,20 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  background-color: #ffffff;
   margin: 0;
-  padding: 20px;
 }
 
 .dashboard {
   max-width: 800px;
   margin: 0 auto;
+  h1 {color: #1f2028;}
 }
 
 .controls {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  background: #fd9292;
+  background: #b5d5ee;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -26,6 +26,7 @@ button, select {
   border-radius: 4px;
   cursor: pointer;
   background-color: #191515;
+  color: white;
 }
 
 button:hover {
