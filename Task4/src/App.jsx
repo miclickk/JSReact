@@ -95,6 +95,7 @@ export default function App() {
         if (selectedId === idToUpdate) {
           setDetails(updatedItem);
           loadItems();
+          setDetailsLoading(false);
         }
       })
       .catch(err => {
