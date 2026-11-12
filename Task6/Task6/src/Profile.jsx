@@ -18,7 +18,6 @@ export default function Profile() {
 
   return (
     <div className="container">
-      {/* Навигация теперь живет только внутри профиля */}
       <nav className="nav">
         <span style={{ fontWeight: '800', fontSize: '1.4rem', color: 'var(--primary)' }}>StartupHub</span>
         <button onClick={logout} style={{ width: 'auto', padding: '0.5rem 1.5rem', background: '#ef4444' }}>

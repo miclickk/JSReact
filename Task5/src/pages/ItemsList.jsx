@@ -24,11 +24,10 @@ export default function ItemsList() {
     });
   }, [q, category, status, sort, page]);
 
-  // Обновление URL параметров
   const updateParam = (key, value) => {
     const params = new URLSearchParams(searchParams);
     value ? params.set(key, value) : params.delete(key);
-    if (key !== 'page') params.set('page', '1'); // сброс пагинации при фильтрации
+    if (key !== 'page') params.set('page', '1');
     setSearchParams(params);
   };
 
