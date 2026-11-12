@@ -1,4 +1,4 @@
-import { useAuth } from "./AuthContext.jsx";
+import { useAuth } from "./AuthContext";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchUserData = async () => {
@@ -8,7 +8,7 @@ const fetchUserData = async () => {
 };
 
 export default function Profile() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["userData"],
@@ -17,23 +17,32 @@ export default function Profile() {
   });
 
   return (
-    <div className="glass-card">
-      <h2>Добро пожаловать!</h2>
-      <p>Ваш Email: {user?.email}</p>
-      <p>Ваш UID: {user?.uid}</p>
+    <div className="container">
+      {/* Навигация теперь живет только внутри профиля */}
+      <nav className="nav">
+        <span style={{ fontWeight: '800', fontSize: '1.4rem', color: 'var(--primary)' }}>StartupHub</span>
+        <button onClick={logout} style={{ width: 'auto', padding: '0.5rem 1.5rem', background: '#ef4444' }}>
+          Выйти
+        </button>
+      </nav>
 
-      <hr style={{ margin: '2rem 0', borderColor: 'rgba(255,255,255,0.1)' }} />
+      <div className="card">
+        <h2 style={{ marginTop: 0 }}>Настройки профиля</h2>
+        <p style={{ color: 'var(--text-muted)' }}>Email: <span style={{ color: 'var(--text-main)' }}>{user?.email}</span></p>
+        <p style={{ color: 'var(--text-muted)' }}>ID: <span style={{ color: 'var(--text-main)', fontSize: '0.9rem' }}>{user?.uid}</span></p>
 
-      <h3>Кэшированные данные с сервера:</h3>
-      {isLoading && <p>Загрузка данных...</p>}
-      {isError && <p>Не удалось загрузить данные.</p>}
-      {data && (
-        <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1rem', borderRadius: '8px' }}>
-          <p>Имя: {data.name}</p>
-          <p>Сайт: {data.website}</p>
-          <small>При переключении вкладок эти данные берутся из кэша, а не запрашиваются заново.</small>
-        </div>
-      )}
+        <hr style={{ margin: '2rem 0', borderColor: '#e5e7eb', borderTop: 'none' }} />
+
+        <h3 style={{ marginBottom: '1rem' }}>Синхронизированные данные API</h3>
+        {isLoading && <p style={{ color: 'var(--primary)' }}>Синхронизация...</p>}
+        {isError && <p style={{ color: '#ef4444' }}>Сбой подключения.</p>}
+        {data && (
+          <div style={{ background: '#f9fafb', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
+            <p style={{ margin: '0 0 0.5rem 0' }}><strong>Сотрудник:</strong> {data.name}</p>
+            <p style={{ margin: '0' }}><strong>Контакт:</strong> {data.website}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

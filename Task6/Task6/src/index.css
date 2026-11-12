@@ -1,58 +1,130 @@
 :root {
-  --bg: #0f172a;
-  --surface: rgba(30, 41, 59, 0.7);
-  --primary: #3b82f6;
-  --text: #f8fafc;
+  --bg-color: #f3f4f6; /* Светло-серый фон приложения */
+  --surface: #ffffff; /* Белые карточки */
+  --primary: #10b981; /* Изумрудно-зеленый */
+  --primary-hover: #059669; /* Темно-зеленый для наведения */
+  --text-main: #111827; /* Почти черный текст */
+  --text-muted: #6b7280; /* Серый текст для описаний */
 }
+
 body {
   margin: 0;
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
   min-height: 100vh;
 }
+
+/* Лейаут для страницы входа (Разделенный экран) */
+.login-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--surface);
+}
+
+.login-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-right {
+  flex: 1.2;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem;
+  /* На мобильных экранах скрываем зеленую часть, оставляя только форму */
+}
+
+@media (max-width: 768px) {
+  .login-right { display: none; }
+}
+
+.form-container {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Контейнер и карточки для профиля */
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
 }
-.glass-card {
+
+.card {
   background: var(--surface);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e5e7eb;
 }
-.nav {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: var(--surface);
-  border-radius: 12px;
-}
-.nav a { color: var(--text); text-decoration: none; font-weight: bold; }
+
+/* Элементы форм */
 input {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.85rem 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(0,0,0,0.2);
-  color: white;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: var(--text-main);
   box-sizing: border-box;
+  font-size: 1rem;
+  transition: all 0.2s;
 }
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
 button {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.85rem;
   background: var(--primary);
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  transition: opacity 0.2s;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s;
 }
-button:hover { opacity: 0.8; }
-.google-btn { background: #ea4335; margin-top: 1rem; }
+
+button:hover { background: var(--primary-hover); }
+
+.google-btn {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.google-btn:hover { background: #f3f4f6; }
+
+/* Навигация профиля */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: var(--surface);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
