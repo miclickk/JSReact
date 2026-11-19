@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Нет подключения — StartupHub</title>
+  <style>
+    body {
+      margin: 0; font-family: system-ui, -apple-system, sans-serif;
+      background: #f3f4f6; color: #111827;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem;
+    }
+    .box {
+      background: #fff; padding: 2rem; border-radius: 16px; max-width: 420px; width: 100%;
+      text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid #e5e7eb;
+    }
+    h1 { color: #059669; margin-top: 0; font-size: 1.5rem; }
+    p { color: #6b7280; line-height: 1.5; margin-bottom: 1.5rem; }
+    button {
+      background: #10b981; color: #fff; border: none; border-radius: 10px;
+      padding: 0.85rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%;
+    }
+    button:hover { background: #059669; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Нет подключения к интернету</h1>
+    <p>Страница сейчас недоступна в офлайне. Проверьте сеть и попробуйте снова.</p>
+    <button onclick="window.location.reload()">Повторить подключение</button>
+  </div>
+</body>
+</html>
