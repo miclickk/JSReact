@@ -19,7 +19,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="items" element={<ItemsList />} />
-            <Route path="items/:id" element={<ItemDetails />} />
+            <Route path="items/:k" element={<ItemDetails />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="login" element={<Login />} />
             <Route path="*" element={<NotFound />} />

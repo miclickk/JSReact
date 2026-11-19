@@ -3,17 +3,17 @@ import { useEffect, useState } from 'react';
 import { getItemById } from '../services/service';
 
 export default function ItemDetails() {
-  const { id } = useParams();
+  const { k } = useParams();
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getItemById(id)
+    getItemById(k)
       .then(res => setItem(res))
       .catch(err => setError(err.message))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [k]);
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка: {error}</div>;

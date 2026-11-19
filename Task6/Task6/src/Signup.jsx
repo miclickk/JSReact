@@ -14,7 +14,6 @@ export default function Signup() {
     e.preventDefault();
     setError("");
 
-    // Валидация из задания: проверка совпадения паролей
     if (password !== confirmPassword) {
       return setError("Пароли не совпадают!");
     }
