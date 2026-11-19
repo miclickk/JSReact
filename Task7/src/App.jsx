@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider, useAuth } from './AuthContext';
 import RootLayout from './components/RootLayout';
 import PwaStatus from './components/PwaStatus';
-const Offline = lazy(() => import('./pages/Offline'));
+const Offline = lazy(() => import('./pages/Offline.jsx'));
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
